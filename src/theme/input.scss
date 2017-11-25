@@ -1,0 +1,16 @@
+.input-vp{
+  background: none;
+  border: solid 1px #FFF;
+  border-radius: 30px;
+  color: #FFF;
+  text-align: center;
+  font-size: 1.3em;
+  font-family: 'CaviarDreams';
+  padding: 10px 0;
+
+  &::placeholder{
+    color: #FFF;
+    text-align: center;
+    font-family: 'CaviarDreams';
+  }
+}
