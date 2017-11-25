@@ -1,0 +1,67 @@
+<ion-content style="background-color: #2C4770">
+  <img class="logo" src="assets/imgs/logo.svg" alt="">
+  <ion-slides parallax effect="coverflow" pager loop>
+
+    <ion-slide>
+      <div class="header">
+        <img src="assets/imgs/bg-match.png" alt="">
+      </div>
+        <div class="row infos">
+          <div class="col">
+            <div class="row" *ngFor="let team of playersPenguins">
+              <div class="col" col-3>
+                <span class="number a">{{team.number}}</span>
+              </div>
+              <div class="col name">
+                {{team.name}}
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row" *ngFor="let team of playersAvalanche">
+              <div class="col" col-3>
+                <span class="number b">{{team.number}}</span>
+              </div>
+              <div class="col name">
+                {{team.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+    </ion-slide>
+
+    <ion-slide  >
+      <div class="header">
+        <img src="assets/imgs/bg-match.png" alt="">
+      </div>
+        <div class="row infos">
+          <div class="col">
+            <div class="row" *ngFor="let team of playersPenguins">
+              <div class="col" col-3>
+                <span class="number a">{{team.number}}</span>
+              </div>
+              <div class="col name">
+                {{team.name}}
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="row" *ngFor="let team of playersAvalanche">
+              <div class="col" col-3>
+                <span class="number b">{{team.number}}</span>
+              </div>
+              <div class="col name">
+                {{team.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+    </ion-slide>
+
+    <ion-slide style="background-color: #7689A9">
+      <h2>Slide 3</h2>
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>
