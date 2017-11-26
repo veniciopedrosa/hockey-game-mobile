@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, ModalController, ToastController, LoadingController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, ModalController, ToastController, LoadingController, AlertController, Slides } from 'ionic-angular';
 import { AppProvider } from "../../providers/app";
 import { AttetionPage } from "./attetion/attetion";
 
@@ -9,15 +9,19 @@ import { AttetionPage } from "./attetion/attetion";
 })
 export class HomePage {
 
+  @ViewChild(Slides) slides: Slides;
   playersPenguins: any;
   playersAvalanche: any;
   info: string = "lineup";
   supporter: string = "online";
   rankingSeats: any;
+  questions: any;
+  questionDescription: any;
   user: any = JSON.parse(window.localStorage.getItem('user'));
   notification: any = JSON.parse(window.localStorage.getItem('notification'));;
 
   constructor(
+    public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public navCtrl: NavController,
@@ -83,6 +87,30 @@ export class HomePage {
 
   ionViewWillEnter(){
     this.getSeatRanking();
+    this.getQuestions();
+  }
+
+  notify(){
+    let confirm = this.alertCtrl.create({
+      title: 'Quiz!',
+      subTitle: 'You have a new question.',
+      buttons: [
+      {
+        text: 'Cancel',
+        role: 'cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      },
+      {
+        text: 'Answer',
+        handler: () => {
+          this.slides.slideTo(2, 500);
+        }
+      }
+    ]
+    });
+    confirm.present();
   }
 
   getSeatRanking(){
@@ -106,6 +134,33 @@ export class HomePage {
       loading.dismiss();
     }
     this.appPrvdr.getSeatRanking().subscribe(success, error)
+  }
+
+  getQuestions(){
+    let loading = this.loadingCtrl.create({
+      spinner: 'hide',
+      content: `
+      <div class="cssload-loader">
+      <div class="cssload-inner cssload-one"></div>
+      <div class="cssload-inner cssload-two"></div>
+      <div class="cssload-inner cssload-three"></div>
+      </div>`
+    });
+    loading.present();
+
+    let error = err => {
+      console.log('err', err);
+      loading.dismiss();
+    }
+    let success = res => {
+      this.questionDescription = res.description;
+      this.questions = res.listAnswer;
+      if(this.questions.length > 0){
+        this.notify();
+      }
+      loading.dismiss();
+    }
+    this.appPrvdr.getQuestions(this.user.username).subscribe(success, error)
   }
 
   openRequest() {

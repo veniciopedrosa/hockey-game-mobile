@@ -32,4 +32,8 @@ export class AppProvider {
     return this.api.post('invert-notification-status', true, cretendials).map(resp => resp.json());
   }
 
+  getQuestions(cretendials) {
+    return this.api.post('ask-question', true, cretendials).map(resp => resp.json());
+  }
+
 }

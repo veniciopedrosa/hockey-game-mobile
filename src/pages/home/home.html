@@ -189,14 +189,23 @@
 
     </ion-slide>
 
-    <ion-slide>
+    <ion-slide *ngIf="questions?.length > 0">
       <div class="header">
         <img src="assets/imgs/bg-match.png" alt="">
         <h2>Quiz</h2>
       </div>
       <div class="row infos">
 
+        <ion-list radio-group [(ngModel)]="relationship">
+          <ion-list-header>
+            {{questionDescription}}
+          </ion-list-header>
 
+          <ion-item *ngFor="let question of questions">
+            <ion-label>{{question.description}}</ion-label>
+            <ion-radio value="{{question.id}}" checked></ion-radio>
+          </ion-item>
+        </ion-list>
 
       </div>
 
