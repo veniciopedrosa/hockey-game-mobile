@@ -228,8 +228,19 @@ export class HomePage {
       }
       loading.dismiss();
       this.getExtractg();
+      this.slides.slideTo(0, 500);
+
     }
     this.appPrvdr.answer(this.answers, this.user.username).subscribe(success, error)
+  }
+
+  toWave(){
+    let confirm = this.alertCtrl.create({
+      title: 'Success!',
+      subTitle: 'Your greeting was sent.',
+      buttons: ['Ok']
+    });
+    confirm.present();
   }
 
   changeNotifications() {
