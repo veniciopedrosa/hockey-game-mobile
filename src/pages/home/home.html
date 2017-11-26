@@ -196,16 +196,18 @@
       </div>
       <div class="row infos">
 
-        <ion-list radio-group [(ngModel)]="relationship">
-          <ion-list-header>
-            {{questionDescription}}
-          </ion-list-header>
+        <h2 class="description-question">
+          {{questionDescription}}
+        </h2>
+        <ion-list class="wd-100 centered" radio-group [(ngModel)]="relationship">
 
           <ion-item *ngFor="let question of questions">
             <ion-label>{{question.description}}</ion-label>
             <ion-radio value="{{question.id}}" checked></ion-radio>
           </ion-item>
+          <br>
         </ion-list>
+        <button type="button" class="button-vp centered wd-80" name="button">Answer</button>
 
       </div>
 
