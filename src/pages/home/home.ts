@@ -20,6 +20,7 @@ export class HomePage {
   user: any = JSON.parse(window.localStorage.getItem('user'));
   notification: any = JSON.parse(window.localStorage.getItem('notification'));
   answers: any;
+  extract:any;
 
   constructor(
     public alertCtrl: AlertController,
@@ -89,6 +90,7 @@ export class HomePage {
   ionViewWillEnter(){
     this.getSeatRanking();
     this.getQuestions();
+    this.getExtractg();
   }
 
   notify(){
@@ -106,7 +108,7 @@ export class HomePage {
       {
         text: 'Answer',
         handler: () => {
-          this.slides.slideTo(2, 500);
+          this.slides.slideTo(3, 500);
         }
       }
     ]
@@ -135,6 +137,29 @@ export class HomePage {
       loading.dismiss();
     }
     this.appPrvdr.getSeatRanking().subscribe(success, error)
+  }
+
+  getExtractg(){
+    let loading = this.loadingCtrl.create({
+      spinner: 'hide',
+      content: `
+      <div class="cssload-loader">
+      <div class="cssload-inner cssload-one"></div>
+      <div class="cssload-inner cssload-two"></div>
+      <div class="cssload-inner cssload-three"></div>
+      </div>`
+    });
+    loading.present();
+
+    let error = err => {
+      console.log('err', err);
+      loading.dismiss();
+    }
+    let success = res => {
+      this.extract = res;
+      loading.dismiss();
+    }
+    this.appPrvdr.getExtract(this.user.username).subscribe(success, error)
   }
 
   getQuestions(){
@@ -202,6 +227,7 @@ export class HomePage {
         confirm.present();
       }
       loading.dismiss();
+      this.getExtractg();
     }
     this.appPrvdr.answer(this.answers, this.user.username).subscribe(success, error)
   }

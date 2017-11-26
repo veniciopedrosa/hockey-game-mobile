@@ -40,4 +40,8 @@ export class AppProvider {
     return this.api.post('submit-answer/' + id, true, cretendials).map(resp => resp.json());
   }
 
+  getExtract(cretendials) {
+    return this.api.post('seat-history-points', true, cretendials).map(resp => resp.json());
+  }
+
 }

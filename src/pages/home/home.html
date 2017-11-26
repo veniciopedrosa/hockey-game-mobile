@@ -189,6 +189,27 @@
 
     </ion-slide>
 
+    <ion-slide>
+      <div class="header">
+        <img src="assets/imgs/bg-match.png" alt="">
+        <h2>Point extract</h2>
+      </div>
+      <div class="row infos" padding>
+
+        <div class="row extract" *ngFor="let i of extract">
+          <div class="col">
+            <strong>{{i.description}}</strong>
+          </div>
+          <div class="col points-extract" col-4>
+            <span class="more" *ngIf="i.historyType == 'CREDIT'">{{i.points}}</span> <img *ngIf="i.historyType == 'CREDIT'" class="icon-extract" src="assets/imgs/plus.svg" alt="">
+            <span class="minus" *ngIf="i.historyType == 'DEBIT'">-{{i.points}}</span> <img *ngIf="i.historyType == 'DEBIT'" class="icon-extract" src="assets/imgs/remove.svg" alt="">
+          </div>
+        </div>
+
+      </div>
+
+    </ion-slide>
+
     <ion-slide *ngIf="questions?.length > 0">
       <div class="header">
         <img src="assets/imgs/bg-match.png" alt="">

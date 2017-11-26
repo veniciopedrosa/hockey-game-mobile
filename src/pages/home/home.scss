@@ -7,6 +7,15 @@ page-home {
     margin-top: 10px;
   }
 
+  .icon-extract{
+    width: 15px;
+    vertical-align: middle;
+  }
+
+  .extract{
+    width: 100%;
+  }
+
   .number{
     font-size: .7em!important;
     border-radius: 50%;
@@ -43,6 +52,21 @@ page-home {
     text-align: left!important;
     font-size: .85em;
     font-family: 'CaviarDreamsBold'
+  }
+
+  .points-extract{
+    text-align: right!important;
+    img{
+      width: 15px;
+      vertical-align: -.5px;
+    }
+    .more{
+      color: #097A1E;
+    }
+
+    .minus{
+      color: #D80027;
+    }
   }
 
   div[ng-reflect-ng-switch]{
