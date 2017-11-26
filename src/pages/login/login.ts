@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AppProvider } from "../../providers/app";
 
@@ -14,6 +14,7 @@ export class LoginPage {
   fanName: any;
 
   constructor(
+    public loadingCtrl:LoadingController,
     public alertCtrl: AlertController,
     public navCtrl: NavController,
     public appPrvdr: AppProvider
@@ -40,6 +41,17 @@ export class LoginPage {
   }
 
   login(){
+    let loading = this.loadingCtrl.create({
+      spinner: 'hide',
+      content: `
+      <div class="cssload-loader">
+      <div class="cssload-inner cssload-one"></div>
+      <div class="cssload-inner cssload-two"></div>
+      <div class="cssload-inner cssload-three"></div>
+      </div>`
+    });
+    loading.present();
+
     let params = {"fanName" : this.fanName}
 
     let error = err => {
@@ -49,6 +61,7 @@ export class LoginPage {
         buttons: ['Ok']
       });
       confirm.present();
+      loading.dismiss();
     }
     let success = res => {
       let user = JSON.stringify(res);
@@ -56,6 +69,7 @@ export class LoginPage {
       window.localStorage.setItem('notification', JSON.stringify(res.receiveNotification));
 
       this.navCtrl.setRoot(HomePage);
+      loading.dismiss();
     }
     this.appPrvdr.login(params, this.numberSeat).subscribe(success,error);
   }

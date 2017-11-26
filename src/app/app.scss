@@ -3,6 +3,7 @@
 @import "theme/width";
 @import "theme/fonts";
 @import "theme/button";
+@import "theme/load";
 
 .scroll-content{
   font-family: 'CaviarDreams'!important;
@@ -12,4 +13,9 @@
   border-radius: 0!important;
   font-family: 'CaviarDreams'!important;
   color: #2C4770!important;
+}
+
+.loading-wrapper{
+  background: none!important;
+  box-shadow: none!important;
 }

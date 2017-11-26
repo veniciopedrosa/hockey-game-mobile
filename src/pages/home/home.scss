@@ -99,9 +99,12 @@ page-home {
     }
   }
 
+  .padding{
+    padding: 0 16px 16px 16px;
+  }
+
   .swiper-slide{
     height: 85%;
-    margin-top: 10px;
     position: relative;
   }
 
@@ -110,6 +113,6 @@ page-home {
   }
 
   .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
-    bottom: 58%;
+    bottom: 60%;
   }
 }

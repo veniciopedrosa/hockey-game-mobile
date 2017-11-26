@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, ToastController } from 'ionic-angular';
+import { NavController, ModalController, ToastController, LoadingController } from 'ionic-angular';
 import { AppProvider } from "../../providers/app";
 import { AttetionPage } from "./attetion/attetion";
 
@@ -18,6 +18,7 @@ export class HomePage {
   notification: any = JSON.parse(window.localStorage.getItem('notification'));;
 
   constructor(
+    public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
     public navCtrl: NavController,
     public appPrvdr: AppProvider,
@@ -85,11 +86,24 @@ export class HomePage {
   }
 
   getSeatRanking(){
+    let loading = this.loadingCtrl.create({
+      spinner: 'hide',
+      content: `
+      <div class="cssload-loader">
+      <div class="cssload-inner cssload-one"></div>
+      <div class="cssload-inner cssload-two"></div>
+      <div class="cssload-inner cssload-three"></div>
+      </div>`
+    });
+    loading.present();
+
     let error = err => {
       console.log('err', err);
+      loading.dismiss();
     }
     let success = res => {
       this.rankingSeats = res;
+      loading.dismiss();
     }
     this.appPrvdr.getSeatRanking().subscribe(success, error)
   }
@@ -100,8 +114,20 @@ export class HomePage {
   }
 
   changeNotifications() {
+    let loading = this.loadingCtrl.create({
+      spinner: 'hide',
+      content: `
+      <div class="cssload-loader">
+      <div class="cssload-inner cssload-one"></div>
+      <div class="cssload-inner cssload-two"></div>
+      <div class="cssload-inner cssload-three"></div>
+      </div>`
+    });
+    loading.present();
+
     let error = err => {
       console.log('err', err);
+      loading.dismiss();
     }
     let success = res => {
       window.localStorage.setItem('notification', JSON.stringify(res.receiveNotification));
@@ -123,6 +149,7 @@ export class HomePage {
         toast.present();
         this.notification = res.receiveNotification;
       }
+      loading.dismiss();
     }
     this.appPrvdr.changeNotifications(this.user.username).subscribe(success, error)
 

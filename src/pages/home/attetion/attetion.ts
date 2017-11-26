@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, ViewController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ViewController, LoadingController } from 'ionic-angular';
 import { AppProvider } from "../../../providers/app";
 
 @Component({
@@ -13,6 +13,7 @@ export class AttetionPage {
   params: any;
 
   constructor(
+    public loadingCtrl: LoadingController,
     public viewCtrl: ViewController,
     public navCtrl: NavController,
     public navParamsCtrl: NavParams,
@@ -24,6 +25,17 @@ export class AttetionPage {
 
   sendRequest(){
     let user =  this.navParamsCtrl.get('username');
+
+    let loading = this.loadingCtrl.create({
+      spinner: 'hide',
+      content: `
+      <div class="cssload-loader">
+      <div class="cssload-inner cssload-one"></div>
+      <div class="cssload-inner cssload-two"></div>
+      <div class="cssload-inner cssload-three"></div>
+      </div>`
+    });
+    loading.present();
 
     if(this.show){
       let type = "FILM";
@@ -43,6 +55,7 @@ export class AttetionPage {
 
     let error = err => {
       console.log('err', err);
+      loading.dismiss();
     }
     let success = res => {
       let confirm = this.alertCtrl.create({
@@ -52,6 +65,7 @@ export class AttetionPage {
       });
       confirm.present();
       this.viewCtrl.dismiss();
+      loading.dismiss();
     }
     this.appPrvdr.requestAttetion(this.params, user.username).subscribe(success, error)
   }
