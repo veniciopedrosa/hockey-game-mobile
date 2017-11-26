@@ -14,7 +14,8 @@ export class HomePage {
   info: string = "lineup";
   supporter: string = "online";
   rankingSeats: any;
-  user: any = window.localStorage.getItem('user');
+  user: any = JSON.parse(window.localStorage.getItem('user'));
+  notification: any = JSON.parse(window.localStorage.getItem('notification'));;
 
   constructor(
     public toastCtrl: ToastController,
@@ -98,12 +99,33 @@ export class HomePage {
    profileModal.present();
   }
 
-  presentToast() {
-    let toast = this.toastCtrl.create({
-      message: 'User was added successfully',
-      duration: 3000
-    });
-    toast.present();
+  changeNotifications() {
+    let error = err => {
+      console.log('err', err);
+    }
+    let success = res => {
+      window.localStorage.setItem('notification', JSON.stringify(res.receiveNotification));
+
+      if(res.receiveNotification){
+        let toast = this.toastCtrl.create({
+          message: 'Notifications enabled',
+          duration: 3000,
+          position: 'top'
+        });
+        toast.present();
+        this.notification = res.receiveNotification;
+      }else{
+        let toast = this.toastCtrl.create({
+          message: 'Notifications disabled',
+          duration: 3000,
+          position: 'top'
+        });
+        toast.present();
+        this.notification = res.receiveNotification;
+      }
+    }
+    this.appPrvdr.changeNotifications(this.user.username).subscribe(success, error)
+
   }
 
 }

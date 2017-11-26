@@ -23,7 +23,7 @@ export class AttetionPage {
   }
 
   sendRequest(){
-    let user =  JSON.parse(this.navParamsCtrl.get('username'));
+    let user =  this.navParamsCtrl.get('username');
 
     if(this.show){
       let type = "FILM";

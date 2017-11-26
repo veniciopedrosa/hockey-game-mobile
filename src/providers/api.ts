@@ -47,7 +47,11 @@ export class ApiProvider {
     if (!options) {
       return this.http.post(this.url + '/' + endpoint, body, this._getOptions());
     } else {
-      return this.http.post(this.url + '/' + endpoint, body, this._getOptionsToken(value));
+      if(value){
+        return this.http.post(this.url + '/' + endpoint, body, this._getOptionsToken(value));
+      }else{
+        return this.http.post(this.url + '/' + endpoint, body, this._getOptionsToken(body));
+      }
     }
   }
 

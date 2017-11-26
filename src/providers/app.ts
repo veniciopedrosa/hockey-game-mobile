@@ -28,4 +28,8 @@ export class AppProvider {
     return this.api.post('new-attention', true, data, cretendials).map(resp => resp.json());
   }
 
+  changeNotifications(cretendials) {
+    return this.api.post('invert-notification-status', true, cretendials).map(resp => resp.json());
+  }
+
 }

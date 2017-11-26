@@ -8,8 +8,9 @@
       <img class="logo" src="assets/imgs/logo.svg" alt="">
     </div>
 
-    <div class="col">
-      <img class="notification centered" src="assets/imgs/off.svg" alt="">
+    <div class="col" (click)="changeNotifications()">
+      <img *ngIf="!notification" class="notification centered" src="assets/imgs/off.svg" alt="">
+      <img *ngIf="notification" class="notification centered" src="assets/imgs/on.svg" alt="">
     </div>
   </div>
 
