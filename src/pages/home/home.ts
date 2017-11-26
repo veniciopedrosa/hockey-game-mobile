@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController, ToastController } from 'ionic-angular';
 import { AppProvider } from "../../providers/app";
+import { AttetionPage } from "./attetion/attetion";
 
 @Component({
   selector: 'page-home',
@@ -13,10 +14,13 @@ export class HomePage {
   info: string = "lineup";
   supporter: string = "online";
   rankingSeats: any;
+  user: any = window.localStorage.getItem('user');
 
   constructor(
+    public toastCtrl: ToastController,
     public navCtrl: NavController,
-    public appPrvdr: AppProvider
+    public appPrvdr: AppProvider,
+    public modalCtrl: ModalController
   ) {
     this.playersPenguins =
     [
@@ -87,6 +91,19 @@ export class HomePage {
       this.rankingSeats = res;
     }
     this.appPrvdr.getSeatRanking().subscribe(success, error)
+  }
+
+  openRequest() {
+   let profileModal = this.modalCtrl.create(AttetionPage, { username: this.user });
+   profileModal.present();
+  }
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'User was added successfully',
+      duration: 3000
+    });
+    toast.present();
   }
 
 }

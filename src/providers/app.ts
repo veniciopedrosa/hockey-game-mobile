@@ -24,4 +24,8 @@ export class AppProvider {
     return this.api.post('my-info', true, data, value).map(resp => resp.json());
   }
 
+  requestAttetion(data, cretendials) {
+    return this.api.post('new-attention', true, data, cretendials).map(resp => resp.json());
+  }
+
 }

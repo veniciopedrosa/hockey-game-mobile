@@ -12,6 +12,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { AttetionPage } from '../pages/home/attetion/attetion';
 
 // providers
 
@@ -24,6 +25,7 @@ import { HttpModule } from '@angular/http';
     MyApp,
     HomePage,
     LoginPage,
+    AttetionPage
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,7 @@ import { HttpModule } from '@angular/http';
     MyApp,
     HomePage,
     LoginPage,
+    AttetionPage
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,20 @@
+<ion-content padding>
+  <button class="close" navPop name="button">
+    <ion-icon name="close"></ion-icon>
+  </button>
+
+  <div class="space-lg"></div>
+
+  <ion-item class="input-vp show">
+    <ion-label>Show me</ion-label>
+    <ion-toggle [(ngModel)]="show"></ion-toggle>
+  </ion-item>
+
+  <div class="space-sm"></div>
+
+  <input type="text" [(ngModel)]="message" [disabled]="show" [class.disable]="show" class="input-vp centered wd-100" placeholder="Message" name="" value="">
+
+  <div class="space-sm"></div>
+
+  <button type="button" (click)="sendRequest()" class="button-vp wd-100" name="button">Send</button>
+</ion-content>

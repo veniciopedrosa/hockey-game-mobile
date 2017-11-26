@@ -1,0 +1,39 @@
+page-attetion{
+  .content{
+    height: 45vh!important;
+    width: 95%;
+    left: 50%;
+    transform: translate(-50%);
+    top: 30vh;
+    background-color: #7B84AE;
+  }
+
+  .close{
+    background: none;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 2.5em;
+    color: #FFF;
+
+    :active{
+      background: none;
+    }
+  }
+
+  .disable{
+    border: 1px solid #CCC;
+    color: #CCC;
+
+    &::placeholder{
+      color: #CCC;
+    }
+  }
+
+  .show{
+    padding: 0;
+  }
+  .item-inner{
+    border: none!important
+  }
+}
