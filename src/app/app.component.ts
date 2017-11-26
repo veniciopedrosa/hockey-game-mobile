@@ -22,6 +22,17 @@ export class MyApp {
       statusBar.backgroundColorByHexString("#2C4770");
       statusBar.styleDefault();
       splashScreen.hide();
+
+      if (platform.is('cordova')) {
+        var notificationOpenedCallback = function(jsonData) {
+          console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+        };
+
+        window["plugins"].OneSignal
+        .startInit("14d50885-af1b-4c57-8a76-ee93fe5ec427", "1045398925092")
+        .handleNotificationOpened(notificationOpenedCallback)
+        .endInit();
+      }
     });
   }
 }
