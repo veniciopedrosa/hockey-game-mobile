@@ -199,7 +199,7 @@
         <h2 class="description-question">
           {{questionDescription}}
         </h2>
-        <ion-list class="wd-100 centered" radio-group [(ngModel)]="relationship">
+        <ion-list class="wd-100 centered" radio-group [(ngModel)]="answers">
 
           <ion-item *ngFor="let question of questions">
             <ion-label>{{question.description}}</ion-label>
@@ -207,7 +207,7 @@
           </ion-item>
           <br>
         </ion-list>
-        <button type="button" class="button-vp centered wd-80" name="button">Answer</button>
+        <button type="button" class="button-vp centered wd-80" (click)="answer()" name="button">Answer</button>
 
       </div>
 

@@ -36,4 +36,8 @@ export class AppProvider {
     return this.api.post('ask-question', true, cretendials).map(resp => resp.json());
   }
 
+  answer(id, cretendials) {
+    return this.api.post('submit-answer/' + id, true, cretendials).map(resp => resp.json());
+  }
+
 }

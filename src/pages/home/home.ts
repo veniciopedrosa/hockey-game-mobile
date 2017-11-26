@@ -18,7 +18,8 @@ export class HomePage {
   questions: any;
   questionDescription: any;
   user: any = JSON.parse(window.localStorage.getItem('user'));
-  notification: any = JSON.parse(window.localStorage.getItem('notification'));;
+  notification: any = JSON.parse(window.localStorage.getItem('notification'));
+  answers: any;
 
   constructor(
     public alertCtrl: AlertController,
@@ -166,6 +167,43 @@ export class HomePage {
   openRequest() {
    let profileModal = this.modalCtrl.create(AttetionPage, { username: this.user });
    profileModal.present();
+  }
+
+  answer(){
+    let loading = this.loadingCtrl.create({
+      spinner: 'hide',
+      content: `
+      <div class="cssload-loader">
+      <div class="cssload-inner cssload-one"></div>
+      <div class="cssload-inner cssload-two"></div>
+      <div class="cssload-inner cssload-three"></div>
+      </div>`
+    });
+    loading.present();
+
+    let error = err => {
+      console.log('err', err);
+      loading.dismiss();
+    }
+    let success = res => {
+      if(res){
+        let confirm = this.alertCtrl.create({
+          title: 'Correct!',
+          subTitle: 'Congratulations.',
+          buttons: ['Ok']
+        });
+        confirm.present();
+      }else{
+        let confirm = this.alertCtrl.create({
+          title: 'Wrong!',
+          subTitle: 'Try again.',
+          buttons: ['Ok']
+        });
+        confirm.present();
+      }
+      loading.dismiss();
+    }
+    this.appPrvdr.answer(this.answers, this.user.username).subscribe(success, error)
   }
 
   changeNotifications() {
