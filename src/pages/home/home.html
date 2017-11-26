@@ -1,66 +1,192 @@
 <ion-content style="background-color: #2C4770">
-  <img class="logo" src="assets/imgs/logo.svg" alt="">
-  <ion-slides parallax effect="coverflow" pager loop>
+  <div class="row">
+    <div class="col">
+      <img class="logo" src="assets/imgs/logo.svg" alt="">
+    </div>
+
+    <div class="col">
+      <img class="notification centered" src="assets/imgs/alarm.svg" alt="">
+    </div>
+  </div>
+
+  <ion-slides parallax effect="coverflow" pager loop class="supporters">
 
     <ion-slide>
       <div class="header">
         <img src="assets/imgs/bg-match.png" alt="">
+        <h2>Today's match</h2>
       </div>
-        <div class="row infos">
-          <div class="col">
-            <div class="row" *ngFor="let team of playersPenguins">
-              <div class="col" col-3>
-                <span class="number a">{{team.number}}</span>
+      <div class="row infos">
+
+        <ion-segment padding [(ngModel)]="info" mode="ios">
+
+          <ion-segment-button value="lineup">
+            Escalação
+          </ion-segment-button>
+
+          <ion-segment-button value="ranking">
+            Classificação
+          </ion-segment-button>
+
+        </ion-segment>
+
+        <div [ngSwitch]="info">
+
+          <div *ngSwitchCase="'lineup'">
+
+            <div class="row">
+              <div class="col">
+                <div class="row" *ngFor="let team of playersPenguins">
+                  <div class="col" col-3>
+                    <span class="number a">{{team.number}}</span>
+                  </div>
+                  <div class="col name">
+                    {{team.name}}
+                  </div>
+                </div>
               </div>
-              <div class="col name">
-                {{team.name}}
+
+              <div class="col">
+                <div class="row" *ngFor="let team of playersAvalanche">
+                  <div class="col" col-3>
+                    <span class="number b">{{team.number}}</span>
+                  </div>
+                  <div class="col name">
+                    {{team.name}}
+                  </div>
+                </div>
               </div>
             </div>
+
           </div>
-          <div class="col">
-            <div class="row" *ngFor="let team of playersAvalanche">
-              <div class="col" col-3>
-                <span class="number b">{{team.number}}</span>
+
+          <div *ngSwitchCase="'ranking'">
+            <div class="row">
+              <div class="col" col-2>
+                <img class="team" src="assets/imgs/team3.svg" alt="">
               </div>
-              <div class="col name">
-                {{team.name}}
+              <div class="col">
+                Nashville
+              </div>
+              <div class="col" col-3>
+                31 pts
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col" col-2>
+                <img class="team" src="assets/imgs/team4.svg" alt="">
+              </div>
+              <div class="col">
+                St. Louis
+              </div>
+              <div class="col" col-3>
+                30 pts
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col" col-2>
+                <img class="team" src="assets/imgs/team5.svg" alt="">
+              </div>
+              <div class="col">
+                Winnipeg
+              </div>
+              <div class="col" col-3>
+                29 pts
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col" col-2>
+                <img class="team" src="assets/imgs/team6.png" alt="">
+              </div>
+              <div class="col">
+                Vancouver
+              </div>
+              <div class="col" col-3>
+                28 pts
               </div>
             </div>
           </div>
         </div>
+
+      </div>
+
+
     </ion-slide>
 
-    <ion-slide  >
+    <ion-slide>
       <div class="header">
         <img src="assets/imgs/bg-match.png" alt="">
+        <h2>Supporters</h2>
       </div>
-        <div class="row infos">
-          <div class="col">
-            <div class="row" *ngFor="let team of playersPenguins">
-              <div class="col" col-3>
-                <span class="number a">{{team.number}}</span>
+      <div class="row infos">
+
+        <ion-segment padding [(ngModel)]="supporter" mode="ios">
+
+          <ion-segment-button value="online">
+            Online
+          </ion-segment-button>
+
+          <ion-segment-button value="ranking2">
+            Ranking
+          </ion-segment-button>
+
+        </ion-segment>
+
+        <div [ngSwitch]="supporter">
+
+          <div *ngSwitchCase="'online'" padding>
+
+            <div class="row user">
+              <div class="col">
+                <strong>Édylle</strong>
               </div>
-              <div class="col name">
-                {{team.name}}
+              <div class="col">
+                seat 24
+              </div>
+              <div class="col" col-2>
+                <img class="hi" src="assets/imgs/waving-hand.svg" alt="">
               </div>
             </div>
-          </div>
-          <div class="col">
-            <div class="row" *ngFor="let team of playersAvalanche">
-              <div class="col" col-3>
-                <span class="number b">{{team.number}}</span>
+
+            <div class="row user">
+              <div class="col">
+                <strong>Rafael</strong>
               </div>
-              <div class="col name">
-                {{team.name}}
+              <div class="col">
+                seat 32
+              </div>
+              <div class="col" col-2>
+                <img class="hi" src="assets/imgs/waving-hand.svg" alt="">
+              </div>
+            </div>
+
+          </div>
+
+          <div padding *ngSwitchCase="'ranking2'">
+            <div class="row user" *ngFor="let seat of rankingSeats">
+              <div class="col">
+                <strong>Édylle</strong>
+              </div>
+              <div class="col">
+                seat {{seat.seatNumber}}
+              </div>
+              <div class="col" col-3>
+                {{seat.points}} pts.
               </div>
             </div>
           </div>
         </div>
+
+      </div>
+
     </ion-slide>
 
-    <ion-slide style="background-color: #7689A9">
+    <!-- <ion-slide style="background-color: #7689A9">
       <h2>Slide 3</h2>
-    </ion-slide>
+    </ion-slide> -->
 
   </ion-slides>
 

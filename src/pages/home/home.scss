@@ -4,6 +4,7 @@ page-home {
     width: 50px;
     margin: auto;
     display: block;
+    margin-top: 10px;
   }
 
   .number{
@@ -16,42 +17,96 @@ page-home {
   }
 
   .a{
-    background-color: #172457;
+    border: solid 1px #7B84AE;
+    background-color: #7B84AE;
   }
 
   .b{
-    background-color: #7B84AE;
+    border: solid 2px #07103A;
+    color: #07103A!important;
   }
 
   .name{
     white-space: nowrap;
     text-align: left!important;
+    color: #07103A;
   }
 
   .col{
     text-align: left!important;
     font-size: .85em;
+    font-family: 'CaviarDreamsBold'
+  }
+
+  div[ng-reflect-ng-switch]{
+    width: 100%!important;
+  }
+
+  ion-slides{
+    height: 85%;
+  }
+
+  ion-segment{
+    display: -webkit-inline-box!important;
+  }
+
+  .infos{
+    position: absolute;
+    background-color: #FFF;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .user{
+    width: 100%!important;
+    color: #07103A;
+  }
+
+  .hi{
+    width: 20px;
+    float: right;
+  }
+
+  .team{
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+  }
+
+  .notification{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-top: 15px;
+  }
+
+  .header{
+    position: absolute;
+    top: 0;
+
+    h2{
+      position: absolute;
+      top: 20vh;
+      margin-left: 10px;
+      color: #07103A;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   .swiper-slide{
     height: 85%;
     margin-top: 10px;
     position: relative;
+  }
 
-    .header{
-      position: absolute;
-      top: 0;
-    }
-
-    .infos{
-      position: absolute;
-      background-color: #FFF;
-      width: 100%;
-      padding: 20px 0;
-    }
+  .swiper-container{
+    overflow-y: scroll
   }
 
   .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
-    bottom: 57%;
+    bottom: 58%;
   }
 }

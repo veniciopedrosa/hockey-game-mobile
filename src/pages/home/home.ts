@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AppProvider } from "../../providers/app";
 
 @Component({
   selector: 'page-home',
@@ -9,8 +10,14 @@ export class HomePage {
 
   playersPenguins: any;
   playersAvalanche: any;
+  info: string = "lineup";
+  supporter: string = "online";
+  rankingSeats: any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(
+    public navCtrl: NavController,
+    public appPrvdr: AppProvider
+  ) {
     this.playersPenguins =
     [
       {
@@ -63,9 +70,23 @@ export class HomePage {
       },
       {
         "number": 40,
-        "name"  : "A. Hammond" 
+        "name"  : "A. Hammond"
       }
     ]
+  }
+
+  ionViewWillEnter(){
+    this.getSeatRanking();
+  }
+
+  getSeatRanking(){
+    let error = err => {
+      console.log('err', err);
+    }
+    let success = res => {
+      this.rankingSeats = res;
+    }
+    this.appPrvdr.getSeatRanking().subscribe(success, error)
   }
 
 }
