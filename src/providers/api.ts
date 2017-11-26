@@ -18,10 +18,11 @@ export class ApiProvider {
   }
 
 
-  _getOptionsToken() {
-    let token = window.localStorage.getItem('token');
+  _getOptionsToken(value?) {
 
-    let headers = new Headers({"Authorization": "Bearer " + token });
+    // let headers = new Headers({"Authorization": "Bearer " + token });
+    let headers = new Headers({"Authorization": "Basic " + btoa(value + ":" + value)});
+
     let options = new RequestOptions({ headers: headers });
 
     return options;
@@ -42,11 +43,11 @@ export class ApiProvider {
     }
   }
 
-  post(endpoint: string, options: boolean, body?: any) {
+  post(endpoint: string, options: boolean, body?: any, value?: any) {
     if (!options) {
       return this.http.post(this.url + '/' + endpoint, body, this._getOptions());
     } else {
-      return this.http.post(this.url + '/' + endpoint, body, this._getOptionsToken());
+      return this.http.post(this.url + '/' + endpoint, body, this._getOptionsToken(value));
     }
   }
 

@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <ion-slides parallax effect="coverflow" pager loop class="supporters">
+  <ion-slides effect="coverflow" pager class="supporters">
 
     <ion-slide>
       <div class="header">
@@ -32,12 +32,12 @@
 
         <div [ngSwitch]="info">
 
-          <div *ngSwitchCase="'lineup'">
+          <div padding *ngSwitchCase="'lineup'">
 
             <div class="row">
               <div class="col">
                 <div class="row" *ngFor="let team of playersPenguins">
-                  <div class="col" col-3>
+                  <div class="col" col-4>
                     <span class="number a">{{team.number}}</span>
                   </div>
                   <div class="col name">
@@ -48,7 +48,7 @@
 
               <div class="col">
                 <div class="row" *ngFor="let team of playersAvalanche">
-                  <div class="col" col-3>
+                  <div class="col" col-4>
                     <span class="number b">{{team.number}}</span>
                   </div>
                   <div class="col name">
@@ -60,7 +60,7 @@
 
           </div>
 
-          <div *ngSwitchCase="'ranking'">
+          <div padding *ngSwitchCase="'ranking'">
             <div class="row">
               <div class="col" col-2>
                 <img class="team" src="assets/imgs/team3.svg" alt="">

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { AppProvider } from "../../providers/app";
 
@@ -10,8 +10,11 @@ import { AppProvider } from "../../providers/app";
 export class LoginPage {
 
   seats: any;
+  numberSeat: any;
+  fanName: any;
 
   constructor(
+    public alertCtrl: AlertController,
     public navCtrl: NavController,
     public appPrvdr: AppProvider
   ) {
@@ -34,6 +37,26 @@ export class LoginPage {
       this.seats = res;
     }
     this.appPrvdr.getSeats().subscribe(success, error)
+  }
+
+  login(){
+    let params = {"fanName" : this.fanName}
+
+    let error = err => {
+      let confirm = this.alertCtrl.create({
+        title: 'Erro!',
+        subTitle: 'Tente novamente.',
+        buttons: ['Ok']
+      });
+      confirm.present();
+    }
+    let success = res => {
+      let user = JSON.stringify(res);
+      window.localStorage.setItem('user', JSON.stringify(res));
+
+      this.navCtrl.setRoot(HomePage);
+    }
+    this.appPrvdr.login(params, this.numberSeat).subscribe(success,error);
   }
 
 }

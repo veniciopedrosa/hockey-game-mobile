@@ -30,6 +30,9 @@ page-home {
     white-space: nowrap;
     text-align: left!important;
     color: #07103A;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .col{

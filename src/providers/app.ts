@@ -20,24 +20,8 @@ export class AppProvider {
     return this.api.get('seat-ranking', false).map(resp => resp.json());
   }
 
-  edit(data) {
-    return this.api.put('convites', true, data).map(resp => resp.json());
-  }
-
-  save(obj) {
-    return this.api.post('convites', true, obj).map(resp => resp.json());
-  }
-
-  delete(id) {
-    return this.api.delete('convites/'+id, true);
-  }
-
-  getInvite() {
-		return this.invite;
-	}
-
-	setInvite(obj) {
-    this.invite = obj;
+  login(data, value) {
+    return this.api.post('my-info', true, data, value).map(resp => resp.json());
   }
 
 }

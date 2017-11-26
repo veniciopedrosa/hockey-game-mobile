@@ -7,18 +7,18 @@
 
   <ion-item class="wd-90 centered input-vp">
     <ion-label>Seat</ion-label>
-    <ion-select [(ngModel)]="gaming">
+    <ion-select [(ngModel)]="numberSeat">
       <ng-container *ngFor="let seat of seats">
         <ion-option *ngIf="seat.available" value="{{seat.seatNumber}}">{{seat.seatNumber}}</ion-option>
       </ng-container>
     </ion-select>
   </ion-item>
 
-  <div class="space-sm" *ngIf="gaming"></div>
+  <div class="space-sm" *ngIf="numberSeat"></div>
 
-  <input type="text" *ngIf="gaming" placeholder="Your name" class="input-vp centered wd-90" name="" value="">
+  <input type="text" *ngIf="numberSeat" [(ngModel)]="fanName" placeholder="Your name" class="input-vp centered wd-90" name="" value="">
 
   <div class="space-md"></div>
 
-  <button type="button" class="button-vp wd-90 centered" (click)="open()" name="button">Login</button>
+  <button type="button" class="button-vp wd-90 centered" (click)="login()" name="button">Login</button>
 </ion-content>
