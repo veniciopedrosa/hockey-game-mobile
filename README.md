@@ -1,3 +1,12 @@
+# How to use this project
+
+```bash
+$ sudo npm install -g ionic cordova
+$ cd hockey-game-mobile
+$ npm install
+$ ionic serve
+```
+
 # Download
 
 [Click here to get the APK](http://bit.ly/2iWyVOB)
