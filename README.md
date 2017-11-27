@@ -23,5 +23,3 @@ $ ionic serve
 ![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2157.PNG)
 ![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2158.PNG)
 ![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2160.PNG)
-![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2161.PNG)
-![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2163.PNG)
