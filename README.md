@@ -7,7 +7,7 @@ $ npm install
 $ ionic serve
 ```
 
-# Download
+# Download APK
 
 [Click here to get the APK](http://bit.ly/2iWyVOB)
 

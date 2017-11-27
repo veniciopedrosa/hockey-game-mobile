@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Headers, RequestOptions, Http } from '@angular/http';
-import { LoadingController } from "ionic-angular";
-import { Observable } from "rxjs";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { Storage } from '@ionic/storage';

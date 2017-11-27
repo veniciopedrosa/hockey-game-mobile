@@ -7,7 +7,6 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class AppProvider {
-  private invite: any;
 
   constructor(public http: Http, public api: ApiProvider) {
   }

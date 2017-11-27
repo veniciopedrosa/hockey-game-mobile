@@ -64,7 +64,6 @@ export class LoginPage {
       loading.dismiss();
     }
     let success = res => {
-      let user = JSON.stringify(res);
       window.localStorage.setItem('user', JSON.stringify(res));
       window.localStorage.setItem('notification', JSON.stringify(res.receiveNotification));
 
