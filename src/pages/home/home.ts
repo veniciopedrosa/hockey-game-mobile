@@ -88,20 +88,9 @@ export class HomePage {
   }
 
   ionViewWillEnter(){
-    // this.getSeatRanking();
-    // this.getQuestions();
-    // this.getExtract();
-  }
-
-  slideChanged() {
-    let currentIndex = this.slides.getActiveIndex();
-    if(currentIndex == 1){
-      this.getSeatRanking();
-    }else if(currentIndex == 2){
-      this.getExtract();
-    }else if(currentIndex == 3){
-      this.getQuestions();
-    }
+    this.getSeatRanking();
+    this.getQuestions();
+    this.getExtract();
   }
 
   doRefresh(refresher) {
