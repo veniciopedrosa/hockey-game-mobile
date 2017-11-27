@@ -88,33 +88,53 @@ export class HomePage {
   }
 
   ionViewWillEnter(){
-    this.getSeatRanking();
-    this.getQuestions();
-    this.getExtractg();
+    // this.getSeatRanking();
+    // this.getQuestions();
+    // this.getExtract();
   }
 
-  notify(){
-    let confirm = this.alertCtrl.create({
-      title: 'Quiz!',
-      subTitle: 'You have a new question.',
-      buttons: [
-      {
-        text: 'Cancel',
-        role: 'cancel',
-        handler: () => {
-          console.log('Cancel clicked');
-        }
-      },
-      {
-        text: 'Answer',
-        handler: () => {
-          this.slides.slideTo(3, 500);
-        }
-      }
-    ]
-    });
-    confirm.present();
+  slideChanged() {
+    let currentIndex = this.slides.getActiveIndex();
+    if(currentIndex == 1){
+      this.getSeatRanking();
+    }else if(currentIndex == 2){
+      this.getExtract();
+    }else if(currentIndex == 3){
+      this.getQuestions();
+    }
   }
+
+  doRefresh(refresher) {
+    setTimeout(() => {
+      this.getSeatRanking();
+      this.getQuestions();
+      this.getExtract();
+      refresher.complete();
+    }, 3000);
+  }
+
+  // notify(){
+  //   let confirm = this.alertCtrl.create({
+  //     title: 'Quiz!',
+  //     subTitle: 'You have a new question.',
+  //     buttons: [
+  //     {
+  //       text: 'Cancel',
+  //       role: 'cancel',
+  //       handler: () => {
+  //         console.log('Cancel clicked');
+  //       }
+  //     },
+  //     {
+  //       text: 'Answer',
+  //       handler: () => {
+  //         this.slides.slideTo(3, 500);
+  //       }
+  //     }
+  //   ]
+  //   });
+  //   confirm.present();
+  // }
 
   getSeatRanking(){
     let loading = this.loadingCtrl.create({
@@ -139,7 +159,7 @@ export class HomePage {
     this.appPrvdr.getSeatRanking().subscribe(success, error)
   }
 
-  getExtractg(){
+  getExtract(){
     let loading = this.loadingCtrl.create({
       spinner: 'hide',
       content: `
@@ -181,9 +201,6 @@ export class HomePage {
     let success = res => {
       this.questionDescription = res.description;
       this.questions = res.listAnswer;
-      if(this.questions.length > 0){
-        this.notify();
-      }
       loading.dismiss();
     }
     this.appPrvdr.getQuestions(this.user.username).subscribe(success, error)
@@ -227,7 +244,7 @@ export class HomePage {
         confirm.present();
       }
       loading.dismiss();
-      this.getExtractg();
+      this.getExtract();
       this.slides.slideTo(0, 500);
 
     }

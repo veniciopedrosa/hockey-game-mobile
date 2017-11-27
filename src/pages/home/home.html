@@ -1,4 +1,12 @@
 <ion-content style="background-color: #2C4770">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
   <div class="row">
     <div class="col" (click)="openRequest()">
       <img class="notification centered" src="assets/imgs/megaphone.svg" alt="">
@@ -14,7 +22,7 @@
     </div>
   </div>
 
-  <ion-slides effect="coverflow" pager class="supporters">
+  <ion-slides effect="coverflow" pager class="supporters" (ionSlideDidChange)="slideChanged()">
 
     <ion-slide>
       <div class="header">
@@ -122,6 +130,7 @@
     </ion-slide>
 
     <ion-slide>
+
       <div class="header">
         <img src="assets/imgs/bg-match.png" alt="">
         <h2>Supporters</h2>
@@ -210,7 +219,7 @@
 
     </ion-slide>
 
-    <ion-slide *ngIf="questions?.length > 0">
+    <ion-slide>
       <div class="header">
         <img src="assets/imgs/bg-match.png" alt="">
         <h2>Quiz</h2>
@@ -224,7 +233,7 @@
 
           <ion-item *ngFor="let question of questions">
             <ion-label>{{question.description}}</ion-label>
-            <ion-radio value="{{question.id}}" checked></ion-radio>
+            <ion-radio value="{{question.id}}"></ion-radio>
           </ion-item>
           <br>
         </ion-list>
