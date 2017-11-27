@@ -13,13 +13,13 @@ $ ionic serve
 
 # Screens
 
-![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2150.PNG)
-![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2151.PNG)
-![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2152.PNG)
-![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2153.PNG)
-![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2159.PNG)
-![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2154.PNG)
-![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2155.PNG)
-![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2157.PNG)
-![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2158.PNG)
-![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2160.PNG)
+![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/screens/IMG_2150.PNG)
+![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/screens/IMG_2151.PNG)
+![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/screens/IMG_2152.PNG)
+![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/screens/IMG_2153.PNG)
+![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/screens/IMG_2159.PNG)
+![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/screens/IMG_2154.PNG)
+![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/screens/IMG_2155.PNG)
+![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/screens/IMG_2157.PNG)
+![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/screens/IMG_2158.PNG)
+![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/screens/IMG_2160.PNG)
