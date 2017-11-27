@@ -11,7 +11,7 @@ $ ionic serve
 
 [Click here to get the APK](http://bit.ly/2iWyVOB)
 
-# Prints
+# Screens
 
 ![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2150.PNG)
 ![alt text](https://github.com/vinnipedrosa/hockey-game-mobile/blob/master/prints/IMG_2151.PNG)
